@@ -3,11 +3,13 @@ import React from "react";
 import styled from "styled-components";
 import cat from "../assets/cat.jpg";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-  background-color: pink;
+  background-color: lightgreen;
   height: 100vh;
-  width: 100vh;
+  width: 100%;
+  font-family: "Pretendard";
 `;
 const Header = styled.div`
   font-size: 40px;
@@ -34,6 +36,12 @@ const Desc = styled.div`
 `;
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClickButton = () => {
+    navigate("/question");
+  };
+
   return (
     <Wrapper>
       <Header>예비집사 판별기</Header>
@@ -49,7 +57,14 @@ const Home = () => {
           />
         </LogoImage>
         <Desc>MBTI를 기반으로 하는 나랑 잘 맞는 고양이 찾기</Desc>
-        <Button>테스트 시작하기</Button>
+        <Button
+          style={{ fontFamily: "Pretendard", color: "red" }}
+          onClick={() => {
+            handleClickButton();
+          }}
+        >
+          테스트 시작하기
+        </Button>
       </Content>
     </Wrapper>
   );
