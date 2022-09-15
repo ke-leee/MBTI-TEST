@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { ProgressBar, Button } from "react-bootstrap";
 import { Questiondata } from "../assets/data/Questiondata";
 import { useState } from "react";
 
 const Wrapper = styled.div`
-  background-color: lightgreen;
+  background-color: lightgray;
   height: 100vh;
   width: 100%;
   font-family: "Pretendard";
@@ -26,7 +26,7 @@ const ButtonGroup = styled.div`
     min-height: 200px;
     font-size: 15px;
     font-family: "Pretendard";
-    background-color: green;
+    background-color: lightskyblue;
   }
   button:nth-child(1) {
     margin-right: 20px;
@@ -43,19 +43,29 @@ const Question = () => {
     { id: "TF", score: 0 },
     { id: "JP", score: 0 },
   ]);
-  //   console.log(totalScore);
   const handleClickBtn = (no, type) => {
     const newScore = totalScore.map((a) =>
       a.id === type ? { id: a.id, score: a.score + no } : a
     );
     setTotalScore(newScore);
     //다음 문제로  문제수 증가
-
     if (Questiondata.length !== questionNo + 1) {
       setQuestionNo(questionNo + 1);
     } else {
+      //mbti도출
+      const mbti = newScore.reduce((acc, cur) => {
+        //현재값의 id가 2보다 클경우 앞의 값, 2보다 작을경우 뒤의 값
+        return (
+          acc +
+          (cur.score >= 2 ? cur.id.substring(0, 1) : cur.id.substring(1, 2))
+        );
+      }, "");
+      console.log(mbti);
       //결과 페이지로 이동
-      navigate("/result");
+      navigate({
+        pathname: "/result",
+        search: `?${createSearchParams({ mbti: mbti })}`,
+      });
     }
 
     // if (type === "EI") {

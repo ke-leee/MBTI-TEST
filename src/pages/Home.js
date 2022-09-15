@@ -1,12 +1,14 @@
 import React from "react";
 //css-in-js
 import styled from "styled-components";
-import cat from "../assets/cat.jpg";
+// import cat from "../assets/cat.jpg";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
+const imgUrl = `${process.env.PUBLIC_URL}/assets/images/cat/`;
+
 const Wrapper = styled.div`
-  background-color: lightgreen;
+  background-color: lightgray;
   height: 100vh;
   width: 100%;
   font-family: "Pretendard";
@@ -49,16 +51,17 @@ const Home = () => {
         <Title> 나에게 맞는 주인님은?</Title>
         <LogoImage>
           <img
-            src={cat}
+            // src={cat}
+            src={`${imgUrl}cat.jpg`}
             className="rounded-circle"
-            alt="logo"
+            alt="cat"
             width={350}
             height={350}
           />
         </LogoImage>
         <Desc>MBTI를 기반으로 하는 나랑 잘 맞는 고양이 찾기</Desc>
         <Button
-          style={{ fontFamily: "Pretendard", color: "red" }}
+          style={{ fontFamily: "Pretendard" }}
           onClick={() => {
             handleClickButton();
           }}
