@@ -2,7 +2,7 @@ import React from "react";
 //css-in-js
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Resultdata } from "../assets/data/Resultdata";
 import { useState } from "react";
 import { useEffect } from "react";
