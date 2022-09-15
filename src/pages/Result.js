@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { Resultdata } from "../assets/data/Resultdata";
 import { useState } from "react";
 import { useEffect } from "react";
+import KakaoShare from "../component/KakaoShare";
 
 const Wrapper = styled.div`
   background-color: lightgreen;
@@ -43,6 +44,8 @@ const Detail = styled.div`
     font-size: 30px;
   }
 `;
+const BtnGroup = styled.div``;
+
 const Result = () => {
   // const [resultdata] = useState(Resultdata);
   const [searchParams] = useSearchParams();
@@ -70,13 +73,14 @@ const Result = () => {
             height={350}
           />
         </LogoImage>
-        <Desc>{resultData.name}</Desc>
+        <Desc>예비 집사님과 찰떡인 고양이는 {resultData.name} 입니다</Desc>
         <Detail>
           <p>{resultData.desc}</p>
         </Detail>
-        <Button style={{ fontFamily: "Pretendard", color: "red" }}>
-          테스트 다시하기
-        </Button>
+        <BtnGroup>
+          <Button style={{ fontFamily: "Pretendard" }}>테스트 다시하기</Button>
+          <KakaoShare />
+        </BtnGroup>
       </Content>
     </Wrapper>
   );

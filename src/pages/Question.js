@@ -93,10 +93,9 @@ const Question = () => {
   return (
     <Wrapper>
       <ProgressBar
-        striped
-        variant="danger"
+        variant="warning"
         now={bar}
-        style={{ marginTop: "20px" }}
+        style={{ marginTop: "5px" }}
       />
       <Title>{Questiondata[questionNo].title}</Title>
       <ButtonGroup>
