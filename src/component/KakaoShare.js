@@ -14,7 +14,7 @@ const KakaoShare = () => {
     Kakao.init("1a3e5408d23acc7cb2fd5b9dfed219bb");
   }, []);
 
-  Kakao.Share.sendDefault({
+  Kakao.Link.sendDefault({
     objectType: "feed",
     content: {
       title: "예비집사 판별기 결과",
@@ -32,6 +32,7 @@ const KakaoShare = () => {
         title: "나도 테스트 하러가기",
         link: {
           mobileWebUrl: url,
+          WebUrl: url,
         },
       },
     ],
