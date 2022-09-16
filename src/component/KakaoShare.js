@@ -39,7 +39,7 @@ const KakaoShare = (props) => {
     });
   };
   return (
-    <Button style={{ fontFamily: "Pretendard" }} onClick={ShareKakao}>
+    <Button className="button" onClick={ShareKakao}>
       카카오톡 공유하기
     </Button>
   );

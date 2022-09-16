@@ -8,33 +8,55 @@ import { useNavigate } from "react-router-dom";
 const imgUrl = `${process.env.PUBLIC_URL}/assets/images/cat/`;
 
 const Wrapper = styled.div`
-  background-color: lightgray;
   height: 100vh;
   width: 100%;
-  font-family: "Pretendard";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* @media screen and (max-width: 700px) {
+    height: 100%;
+  } */
 `;
 const Header = styled.div`
-  font-size: 40px;
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+const HeaderContent = styled.h1`
+  @media screen and (max-width: 700px) {
+    margin-top: 30px;
+  }
 `;
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .button:hover {
+    background-color: #f7ecac;
+    color: gray;
+  }
 `;
 const Title = styled.div`
+  margin-top: 30px;
+  color: #c87271;
   font-size: 30px;
-  margin-top: 40px;
 `;
 const LogoImage = styled.div`
-  margin-top: 10px;
+  margin: 50px 0;
+  img {
+    @media screen and (max-width: 700px) {
+      width: 250px;
+      height: 250px;
+    }
+  }
 `;
 const Desc = styled.div`
-  font-size: 20px;
-  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 40px;
 `;
 
 const Home = () => {
@@ -46,12 +68,13 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <Header>예비집사 판별기</Header>
+      <Header>
+        <HeaderContent>예비집사 판별기</HeaderContent>
+      </Header>
       <Content>
-        <Title> 나에게 맞는 주인님은?</Title>
+        <Title>나에게 맞는 애용이는?🐈</Title>
         <LogoImage>
           <img
-            // src={cat}
             src={`${imgUrl}cat.jpg`}
             className="rounded-circle"
             alt="cat"
@@ -59,9 +82,14 @@ const Home = () => {
             height={350}
           />
         </LogoImage>
-        <Desc>MBTI를 기반으로 하는 나랑 잘 맞는 고양이 찾기</Desc>
+        <Desc>
+          <h2>
+            MBTI를 기반으로 하는 <br />
+            나랑 잘 맞는 고양이 찾기
+          </h2>
+        </Desc>
         <Button
-          style={{ fontFamily: "Pretendard" }}
+          className="button"
           onClick={() => {
             handleClickButton();
           }}

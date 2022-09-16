@@ -6,30 +6,44 @@ import { Questiondata } from "../assets/data/Questiondata";
 import { useState } from "react";
 
 const Wrapper = styled.div`
-  background-color: lightgray;
   height: 100vh;
   width: 100%;
-  font-family: "Pretendard";
+  position: fixed;
+  overflow: hidden;
+`;
+const ContentWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Title = styled.div`
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
-  margin-top: 40px;
+  @media screen and (max-width: 700px) {
+    height: 100px;
+    margin: 0 20px;
+    font-size: 30px;
+  }
 `;
 const ButtonGroup = styled.div`
+  width: 70%;
+  height: 70%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  button {
-    width: 40%;
-    min-height: 200px;
-    font-size: 15px;
-    font-family: "Pretendard";
-    background-color: lightskyblue;
-  }
   button:nth-child(1) {
-    margin-right: 20px;
+    margin-right: 50px;
+  }
+  .buttonQ:hover {
+    background-color: #e0ddcf;
+    color: black;
+  }
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    height: 60%;
   }
 `;
 const Question = () => {
@@ -60,34 +74,13 @@ const Question = () => {
           (cur.score >= 2 ? cur.id.substring(0, 1) : cur.id.substring(1, 2))
         );
       }, "");
-      console.log(mbti);
+      // console.log(mbti);
       //결과 페이지로 이동
       navigate({
         pathname: "/result",
         search: `?${createSearchParams({ mbti: mbti })}`,
       });
     }
-
-    // if (type === "EI") {
-    //   //기존 스코어에 더할 값을 계산(기존값 + 배점)
-    //   const addScore = totalScore[0].score + no;
-    //   //새로운 객체 생성
-    //   const newObject = { id: "EI", score: addScore };
-    //   //splice를 통해 새로운 객체를 해당객체 자리에 넣어줌
-    //   totalScore.splice(0, 1, newObject);
-    // } else if (type === "SN") {
-    //   const addScore = totalScore[0].score + no;
-    //   const newObject = { id: "SN", score: addScore };
-    //   totalScore.splice(1, 1, newObject);
-    // } else if (type === "TF") {
-    //   const addScore = totalScore[1].score + no;
-    //   const newObject = { id: "TF", score: addScore };
-    //   totalScore.splice(2, 1, newObject);
-    // } else {
-    //   const addScore = totalScore[2].score + no;
-    //   const newObject = { id: "JP", score: addScore };
-    //   totalScore.splice(3, 1, newObject);
-    // }
   };
 
   return (
@@ -95,25 +88,29 @@ const Question = () => {
       <ProgressBar
         variant="warning"
         now={bar}
-        style={{ marginTop: "5px" }}
+        style={{ marginTop: "20px", color: "blue" }}
       />
-      <Title>{Questiondata[questionNo].title}</Title>
-      <ButtonGroup>
-        <Button
-          onClick={() => {
-            handleClickBtn(1, Questiondata[questionNo].type);
-          }}
-        >
-          {Questiondata[questionNo].answera}
-        </Button>
-        <Button
-          onClick={() => {
-            handleClickBtn(0, Questiondata[questionNo].type);
-          }}
-        >
-          {Questiondata[questionNo].answerb}
-        </Button>
-      </ButtonGroup>
+      <ContentWrapper>
+        <Title>{Questiondata[questionNo].title}</Title>
+        <ButtonGroup>
+          <Button
+            className="buttonQ"
+            onClick={() => {
+              handleClickBtn(1, Questiondata[questionNo].type);
+            }}
+          >
+            {Questiondata[questionNo].answera}
+          </Button>
+          <Button
+            className="buttonQ"
+            onClick={() => {
+              handleClickBtn(0, Questiondata[questionNo].type);
+            }}
+          >
+            {Questiondata[questionNo].answerb}
+          </Button>
+        </ButtonGroup>
+      </ContentWrapper>
     </Wrapper>
   );
 };

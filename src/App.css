@@ -1,9 +1,22 @@
-
-
-.App {
-  font-family: "Pretendard";
+* {
+  font-family: "GangwonEdu_OTFBoldA";
 }
+
 @font-face {
   font-family: "Pretendard";
   src: url(/src/assets/fonts/Pretendard-SemiBold.woff);
+}
+@font-face {
+  font-family: "GangwonEduAll";
+  /* src: url(/src/assets/fonts/GangwonEduAll-Bold.ttf); */
+  /* src : url("./assets/fonts/GangwonEdu-Strong.ttf") */
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
+    format("woff");
+  font-weight: 300;
 }

@@ -3,14 +3,18 @@ import Question from "./pages/Question";
 import Result from "./pages/Result";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import GlobalStyle from "./component/GlobalStyle";
 
 function App() {
   return (
-    <Routes basename={process.env.PUBLIC_URL}>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/question" element={<Question />}></Route>
-      <Route path="/result" element={<Result />}></Route>
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Routes basename={process.env.PUBLIC_URL}>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/question" element={<Question />}></Route>
+        <Route path="/result" element={<Result />}></Route>
+      </Routes>
+    </>
   );
 }
 
