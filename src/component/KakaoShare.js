@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 const { Kakao } = window;
 
+const imgUrl = `${process.env.PUBLIC_URL}/assets/images/cat/`;
+
 const KakaoShare = (props) => {
   const url = "https://meowmeowmbti.netlify.app/";
   const resultUrl = window.location.href;
@@ -19,9 +21,11 @@ const KakaoShare = (props) => {
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "😼예비집사 판별기 결과😼",
-        description: `예비 집사님이 고양이를 키운다면 가장 잘맞는 고양이는 ${props.data.name}입니다.`,
-        imageUrl: url + props.data.image,
+        title: "😼김애용 어딨어!😼",
+        // description: `예비 집사님이 고양이를 키운다면 가장 잘맞는 고양이는 ${props.data.name}입니다.`,
+        description: `애용이 찾아보기😉`,
+        // imageUrl: url + props.data.image,
+        imageUrl: url + `${imgUrl}meow.png`,
         link: {
           mobileWebUrl: resultUrl,
           webUrl: resultUrl,
@@ -29,7 +33,7 @@ const KakaoShare = (props) => {
       },
       buttons: [
         {
-          title: "나도 테스트 하러가기",
+          title: "테스트 하러가기",
           link: {
             mobileWebUrl: url,
             webUrl: url,
