@@ -4,6 +4,7 @@ import Result from "./pages/Result";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import GlobalStyle from "./component/GlobalStyle";
+import React from "react";
 
 function App() {
   return (
