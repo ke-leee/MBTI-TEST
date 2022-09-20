@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
 import Question from "./pages/Question";
