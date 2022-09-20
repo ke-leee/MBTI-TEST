@@ -19,30 +19,33 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 const Title = styled.div`
-  font-size: 40px;
   text-align: center;
-  @media screen and (max-width: 700px) {
-    height: 100px;
-    margin: 0 20px;
+  font-size: 40px;
+  margin-bottom: 50px;
+  @media screen and (max-width: 767px) {
+    height: 50px;
     font-size: 30px;
   }
 `;
 const ButtonGroup = styled.div`
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   button:nth-child(1) {
     margin-right: 50px;
+    @media screen and (max-width: 767px) {
+      margin-right: 25px;
+    }
   }
   .buttonQ:hover {
     background-color: #e0ddcf;
     color: black;
   }
-  @media screen and (max-width: 700px) {
-    width: 100%;
+  @media screen and (max-width: 767px) {
+    width: 90%;
     height: 60%;
   }
 `;
@@ -85,11 +88,7 @@ const Question = () => {
 
   return (
     <Wrapper>
-      <ProgressBar
-        variant="warning"
-        now={bar}
-        style={{ marginTop: "20px", color: "blue" }}
-      />
+      <ProgressBar variant="warning" now={bar} style={{ marginTop: "20px" }} />
       <ContentWrapper>
         <Title>{Questiondata[questionNo].title}</Title>
         <ButtonGroup>

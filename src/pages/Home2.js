@@ -8,57 +8,63 @@ import { useNavigate } from "react-router-dom";
 const imgUrl = `${process.env.PUBLIC_URL}/assets/images/cat/`;
 
 const Wrapper = styled.div`
-  height: 100vh;
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  /* @media screen and (max-width: 700px) {
-    height: 100%;
-  } */
+  align-items: center;
 `;
 const Header = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 20px;
 `;
-const HeaderContent = styled.h1`
-  @media screen and (max-width: 700px) {
-    margin-top: 30px;
+const HeaderContent = styled.h1``;
+const Content = styled.div`
+  margin: 40px 0;
+`;
+const Title = styled.div`
+  color: #c87271;
+  font-size: 40px;
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    font-size: 20px;
   }
 `;
-const Content = styled.div`
+const LogoImage = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+  img {
+    width: 70%;
+    height: 70%;
+    @media screen and (max-width: 767px) {
+      width: 50%;
+      height: 50%;
+    }
+  }
+`;
+const Desc = styled.div``;
+const P = styled.p`
+  margin: 0;
+  text-align: center;
+  color: #667b69;
+  font-family: "GangwonEduAll";
+  font-size: 30px;
+  @media screen and (max-width: 767px) {
+    font-size: 25px;
+  }
+`;
+
+const Footer = styled.div`
+  margin-bottom: 20px;
   .button:hover {
     background-color: #f7ecac;
     color: gray;
   }
 `;
-const Title = styled.div`
-  margin-top: 30px;
-  color: #c87271;
-  font-size: 30px;
-`;
-const LogoImage = styled.div`
-  margin: 50px 0;
-  img {
-    @media screen and (max-width: 700px) {
-      width: 250px;
-      height: 250px;
-    }
-  }
-`;
-const Desc = styled.div`
-  text-align: center;
-  margin-bottom: 40px;
-`;
 
-const Home = () => {
+const Home2 = () => {
   const navigate = useNavigate();
 
   const handleClickButton = () => {
@@ -75,29 +81,31 @@ const Home = () => {
         <LogoImage>
           <img
             src={`${imgUrl}meow.png`}
-            className="rounded-circle"
+            // className="rounded-circle"
             alt="cat"
-            width={350}
-            height={350}
+            // width={350}
+            // height={350}
           />
         </LogoImage>
         <Desc>
-          <h2>
+          <P>
             MBTI를 기반으로 하는 <br />
             나랑 잘 맞는 고양이 찾기
-          </h2>
+          </P>
         </Desc>
+      </Content>
+      <Footer>
         <Button
-          className="button"
+          className="button home"
           onClick={() => {
             handleClickButton();
           }}
         >
           테스트 시작하기
         </Button>
-      </Content>
+      </Footer>
     </Wrapper>
   );
 };
 
-export default Home;
+export default Home2;
