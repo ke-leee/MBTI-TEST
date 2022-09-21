@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  @media screen and (max-width: 767px) {
+    height: 100%;
+    overflow: hidden;
+  }
 `;
 const Header = styled.div`
   margin-top: 20px;
