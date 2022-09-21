@@ -9,10 +9,10 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
   position: fixed;
-  @media screen and (max-width: 767px) {
+  /* @media screen and (max-width: 767px) {
     height: 100%;
     overflow: hidden;
-  }
+  } */
 `;
 const ContentWrapper = styled.div`
   height: 100%;
