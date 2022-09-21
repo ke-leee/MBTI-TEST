@@ -41,12 +41,18 @@ const ButtonGroup = styled.div`
     }
   }
   .buttonQ:hover {
-    background-color: #e0ddcf;
-    color: black;
+    background-color: #687d6c;
   }
   @media screen and (max-width: 767px) {
     width: 90%;
     height: 60%;
+  }
+  //PC만 호버
+  @media (hover: hover) {
+    .buttonQ:hover {
+      background-color: #e0ddcf;
+      color: black;
+    }
   }
 `;
 const Question = () => {

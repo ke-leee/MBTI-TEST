@@ -1,7 +1,6 @@
 import React from "react";
 //css-in-js
 import styled from "styled-components";
-// import cat from "../assets/cat.jpg";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 const Header = styled.div`
   margin-top: 20px;
