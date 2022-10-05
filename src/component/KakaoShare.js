@@ -21,9 +21,9 @@ const KakaoShare = (props) => {
     Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "😼김애용 어딨어!😼",
+        title: "나의 애용이😼",
         // description: `예비 집사님이 고양이를 키운다면 가장 잘맞는 고양이는 ${props.data.name}입니다.`,
-        description: `애용이 찾아보기😉`,
+        description: `나와 가장 잘 맞는 고양이는 ${props.data.name} 입니다.`,
         // imageUrl: url + props.data.image,
         imageUrl: url + `${imgUrl}meow.png`,
         link: {

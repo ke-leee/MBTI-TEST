@@ -9,18 +9,21 @@ import { useEffect } from "react";
 import KakaoShare from "../component/KakaoShare";
 
 const Wrapper = styled.div`
-  height: 100%;
   width: 100%;
-`;
-const Header = styled.div`
-  font-size: 40px;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  @media screen and (max-height: 650px) {
+    height: 100%;
+  }
+`;
+const Header = styled.div`
+  margin-top: 30px;
 `;
 const HeaderContent = styled.h1`
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 767px) {
     font-size: 30px;
   }
 `;
@@ -29,58 +32,67 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .button:hover {
-    background-color: #f7ecac;
-    color: gray;
-  }
 `;
-const Title = styled.div`
-  font-size: 30px;
-  margin-top: 40px;
-`;
+
 const LogoImage = styled.div`
-  margin-top: 10px;
+  img {
+    @media screen and (max-width: 1024px) {
+      margin: 40px 0;
+      width: 300px;
+      height: 300px;
+    }
+    @media screen and (max-width: 767px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
 `;
 const Desc = styled.div`
   font-size: 20px;
-  margin: 30px 15px;
+  margin: 20px 0;
+  text-align: center;
   span {
     color: #667b69;
     font-size: 40px;
     font-family: "GangwonEduAll";
     @media screen and (max-width: 700px) {
-      font-size: 20px;
+      font-size: 30px;
     }
   }
 `;
-
 const Detail = styled.div`
   background-color: #667b69;
-  width: 70%;
+  width: 60%;
   border-radius: 20px;
   opacity: 0.8;
   @media screen and (max-width: 700px) {
     width: 90%;
   }
   p {
-    margin: 30px 70px;
-    font-size: 30px;
+    padding: 10px 40px;
+    margin: 0;
+    font-size: 20px;
     color: white;
-    @media screen and (max-width: 700px) {
-      font-size: 20px;
-      margin: 20px;
+    @media screen and (max-width: 767px) {
+      font-size: 15px;
+      padding: 10px;
     }
   }
 `;
 const BtnGroup = styled.div`
-  margin-top: 30px;
+  margin: 30px 0;
   button:nth-child(1) {
     margin-right: 10px;
+  }
+  .button:hover {
+    background-color: #f7ecac;
+    color: gray;
+  }
+  @media screen and (max-width: 767px) {
   }
 `;
 
 const Result = () => {
-  // const [resultdata] = useState(Resultdata);
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get("mbti"); //가져오려는 key값 입력
   //mbti 결과값
@@ -104,7 +116,6 @@ const Result = () => {
         <HeaderContent>😺예비집사 판별기 결과😺</HeaderContent>
       </Header>
       <Content>
-        <Title> 두근두근 </Title>
         <LogoImage>
           <img
             src={resultData.image}
@@ -115,23 +126,25 @@ const Result = () => {
           />
         </LogoImage>
         <Desc>
-          예비 집사님과 찰떡인 고양이는 <span>{resultData.name}</span> 입니다
+          예비 집사님과 찰떡인 고양이는
+          <br />
+          <span>{resultData.name}</span>
         </Desc>
         <Detail>
           <p>{resultData.desc}</p>
         </Detail>
-        <BtnGroup>
-          <Button
-            className="button"
-            onClick={() => {
-              handleClickButton();
-            }}
-          >
-            테스트 다시하기
-          </Button>
-          <KakaoShare data={resultData} />
-        </BtnGroup>
       </Content>
+      <BtnGroup>
+        <Button
+          className="button"
+          onClick={() => {
+            handleClickButton();
+          }}
+        >
+          테스트 다시하기
+        </Button>
+        <KakaoShare data={resultData} />
+      </BtnGroup>
     </Wrapper>
   );
 };
